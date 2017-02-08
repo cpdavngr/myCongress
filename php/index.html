@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src='./jquery.js'></script>
+<script type="text/javascript">
+function loadVotes(myCtx)
+{
+	alert('test');
+	$.ajax({url: "./load.php", success: function(result){
+        	$("#cresults").html(result);
+		resArr=result.split('<br/>');
+		for (x=0;x<resArr.length;x++)
+		{			
+			offset=14*(x+6); //TODO Start a few lines below the heading section. This should be dynamically calculated in the future.		
+			fieldArr=resArr[x].split('|');
+			name=fieldArr[0];
+			termDate=fieldArr[1];			
+			myCtx.fillText(name, 0, offset);
+			myCtx.fillText(termDate,300,offset);
+		}
+    	}
+});
+}
+window.onload = function(){
+ var canvas = document.getElementById("myCanvas");
+ var context = canvas.getContext("2d");
+ var imageObj = new Image();
+ imageObj.onload = function(){
+     context.drawImage(imageObj, 0, 0);
+     context.font = "bold 12px Verdana";
+//TODO Font color should be user selectable as well as background
+     context.fillStyle="#000000";
+//TODO Spacing can be dynamic depending on font.This is just static for testing.
+//TODO Title should be centered based on the width of the canvas.
+	context.fillText('Senators who voted YEA On the Nomination PN37: ',0,14);
+	context.fillText('Elisabeth Prince DeVos, of Michigan, to be ',0,28);
+	context.fillText('Secretary of Education',0,42);
+	context.font = "12px Verdana";
+	context.fillText("Name",0,70);
+	context.fillText("TermEndDate",300,70);   
+ };
+ imageObj.src = "./white.jpg"; //TODO Background image should be selectable and dynamically sized, or just fill it with a background color.
+ loadVotes(context);
+
+};
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="1000" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<div id='cresults'></div>
+</body>
+</html>
