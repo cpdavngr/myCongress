@@ -42,20 +42,10 @@ app.get('/congress',function(req,res) {
 					myStr += resObj.objects[x].person.name +'|'+ resObj.objects[x].person_role.enddate+'<br/>';
         			}
 			}
-/*			caption.path("./white.jpg",{
-			  caption : myStr,
-			  outputFile : "./images/congress.jpg",
-			  minHeight : 1000
-			},function(err,filename){
-				var arr=filename.split('/');
-			//	res.send(arr);
-			  //res.send('<html><body><img src="'+arr[2]+'"/></body></html>');
-			  // do stuff
-			});*/
 			res.send(myStr);
 			// gres contains JSON data response 
   		}
-	//});
+	});
 })
 
 /*app.get('/caption',function(req,res) {
