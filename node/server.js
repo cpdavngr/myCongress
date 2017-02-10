@@ -19,6 +19,19 @@ app.get('/login',function(req,res) {
 	res.send('Worked!');
 })
 
+//Get all issues/votes from current congress. (currently hardcoded for testing)
+app.get('/votes',function(req,res) {
+
+	govTrack.findVote({congress:115,chamber:"senate",session:2017,fields:"created,id,question",order_by:"created"},function(err,gres)
+	{
+		if (!err)
+		{
+			res.send(gres);
+		}
+	});
+})
+
+//Get voes on a particular issue ID
 app.get('/congress',function(req,res) {
 
 

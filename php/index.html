@@ -1,7 +1,14 @@
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="lib/w3.css">-->
 <head>
 <script src='./jquery.js'></script>
 <script type="text/javascript">
+function submit()
+{
+	init();
+}
+
 function loadVotes(myCtx)
 {
 	alert('test');
@@ -20,7 +27,8 @@ function loadVotes(myCtx)
     	}
 });
 }
-window.onload = function(){
+//window.onload = function(){
+function init() {
  var canvas = document.getElementById("myCanvas");
  var context = canvas.getContext("2d");
  var imageObj = new Image();
@@ -43,10 +51,40 @@ window.onload = function(){
 
 };
 </script>
+<style type="text/css">
+.inputdiv {float:left;}
+</style>
 </head>
-<body>
+<body style='width:800px; margin:0 auto;'>
+<div id='maininput' style='text-align:center;'>
+<div>
+<span>Select an issue</span>
+<br/>
+ <select id='issue'>
+  <option value="Issue1">Issue1</option>
+  <option value="Issue2">Issue2</option>
+  <option value="Issue2">Issue2</option>
+</select>
+</div>
+<div>
+<span>Select a vote</span>
+<br/>
+<select id='vote'>
+	<option value="YEA">YEA</option>
+	<option value="NAY">NAY</option>
+</select>
+</div>
+<div>
+Show my votes!
+<br/>
+<button onclick="submit();">Submit</button>
+</div>
+</div>
+<hr>
+<div id='mainresults' style='text-align:center;'>
 <canvas id="myCanvas" width="400" height="1000" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 <div id='cresults'></div>
+</div>
 </body>
 </html>
