@@ -1,4 +1,4 @@
-var caption=require('caption');//TODO REMOVE
+//var caption=require('caption');//TODO REMOVE
 var govTrack = require('govtrack-node');
 var express = require('express');
 var app = express();
@@ -42,7 +42,7 @@ app.get('/congress',function(req,res) {
 					myStr += resObj.objects[x].person.name +'|'+ resObj.objects[x].person_role.enddate+'<br/>';
         			}
 			}
-			caption.path("./white.jpg",{
+/*			caption.path("./white.jpg",{
 			  caption : myStr,
 			  outputFile : "./images/congress.jpg",
 			  minHeight : 1000
@@ -51,11 +51,11 @@ app.get('/congress',function(req,res) {
 			//	res.send(arr);
 			  //res.send('<html><body><img src="'+arr[2]+'"/></body></html>');
 			  // do stuff
-			});
+			});*/
 			res.send(myStr);
 			// gres contains JSON data response 
   		}
-	});
+	//});
 })
 
 /*app.get('/caption',function(req,res) {
