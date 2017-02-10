@@ -5,10 +5,9 @@ Input is currently static. Ideally, people would select a bill from the current 
 Requirements:
 PHP
 Node.js
+npm packages are already installed, but here they are.
 -express
--node-caption (Old code exists that uses it. Should be removed. The program now uses HTML5 canvas.)
 -govtrack-node
-ImageMagick (for node-caption)
 Run the node.js server. Default port is 8081 but you change it.
 node server.js
 
